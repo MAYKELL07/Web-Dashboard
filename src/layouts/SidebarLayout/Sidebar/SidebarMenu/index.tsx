@@ -203,32 +203,6 @@ function SidebarMenu() {
             </List>
           </SubMenuWrapper>
         </List>
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Apis
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
-              <ListItem component="div">
-                <NextLink href="/apis/scraper" passHref>
-                  <Button
-                    className={currentRoute === '/apis/scraper' ? 'active' : ''}
-                    disableRipple
-                    component="a"
-                    onClick={closeSidebar}
-                    startIcon={<ApiIcon />}
-                  >
-                    scraper
-                  </Button>
-                </NextLink>
-              </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
 
         <List
           component="div"
@@ -348,6 +322,34 @@ function SidebarMenu() {
             </List>
           </SubMenuWrapper>
         </List>
+        
+        <List
+          component="div"
+          subheader={
+            <ListSubheader component="div" disableSticky>
+              Apis
+            </ListSubheader>
+          }
+        >
+          <SubMenuWrapper>
+            <List component="div">
+              <ListItem component="div">
+                <NextLink href="/apis/scraper" passHref>
+                  <Button
+                    className={currentRoute === '/apis/scraper' ? 'active' : ''}
+                    disableRipple
+                    component="a"
+                    onClick={closeSidebar}
+                    startIcon={<ApiIcon />}
+                  >
+                    scraper
+                  </Button>
+                </NextLink>
+              </ListItem>
+            </List>
+          </SubMenuWrapper>
+        </List>
+        
         <List
           component="div"
           subheader={
