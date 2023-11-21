@@ -61,7 +61,7 @@ const ApiFieldsList = ({ apiFields }) => {
                         display: 'inline-block',
                         position: 'relative',
                         '&:hover': {
-                          bgcolor: header === 'category' ? '#8c7cf0' : 'inherit', // Purple hover effect for the category column
+                          bgcolor: header ? '#8c7cf0' : 'inherit', // Purple hover effect for the category column
                         },
                       }}
                     >
