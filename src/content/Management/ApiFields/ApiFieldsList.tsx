@@ -37,26 +37,33 @@ const ApiFieldsList = ({ apiFields }) => {
             <TableRow key={rowIndex}>
               {headers.map((header) => (
                 <TableCell key={header}>
-                  {header === 'requestMethod' || header === 'status' ? (
+                  {header === 'requestMethod' || header === 'status' || header === 'category' ? (
                     <Box
                       component="span"
-                      bgcolor={
-                        header === 'requestMethod'
-                          ? row[header] === 'GET'
-                            ? '#4679fa'
-                            : row[header] === 'POST'
-                            ? '#04cf29'
-                            : 'inherit'
-                          : header === 'status'
-                          ? row[header] === 'active'
-                            ? '#5df078'
-                            : 'red'
-                          : 'inherit'
-                      }
-                      color="white" // Set text color to white for better visibility
-                      p={1} // Adjust padding for different screen sizes
-                      borderRadius={3} // Set border radius for curvy appearance
-                      display="inline-block" // Ensure inline-block display for accurate border-radius
+                      sx={{
+                        bgcolor:
+                          header === 'requestMethod'
+                            ? row[header] === 'GET'
+                              ? '#4679fa'
+                              : row[header] === 'POST'
+                              ? '#04cf29'
+                              : 'inherit'
+                            : header === 'status'
+                            ? row[header] === 'active'
+                              ? '#5df078'
+                              : 'red'
+                            : header === 'category'
+                            ? '#2f2c42' // Use a light gray color for the category column
+                            : 'inherit',
+                        color: 'white',
+                        p: 1,
+                        borderRadius: 3,
+                        display: 'inline-block',
+                        position: 'relative',
+                        '&:hover': {
+                          bgcolor: header === 'category' ? '#8c7cf0' : 'inherit', // Purple hover effect for the category column
+                        },
+                      }}
                     >
                       {row[header]}
                     </Box>
@@ -66,14 +73,12 @@ const ApiFieldsList = ({ apiFields }) => {
                 </TableCell>
               ))}
               <TableCell>
-                <Tooltip title="Disable API">
-                  <IconButton color="secondary">
-                    {/* Your disable icon */}
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Enable API">
+                <Tooltip title={row['status'] === 'active' ? 'Disable API' : 'Enable API'}>
                   <IconButton color="primary">
-                    {/* Your enable icon */}
+                    <img
+                      src={row['status'] === 'active' ? '/arrow-2.png' : '/arrow.png'}
+                      alt={row['status'] === 'active' ? 'Enable API' : 'Disable API'}
+                    />
                   </IconButton>
                 </Tooltip>
               </TableCell>

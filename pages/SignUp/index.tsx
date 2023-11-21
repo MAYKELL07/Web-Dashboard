@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Pattern } from '@mui/icons-material';
 
 function Copyright(props: any) {
   return (
@@ -29,17 +30,18 @@ function Copyright(props: any) {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function SignIn() {
+export default function SignUp() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      phoneNumber: data.get('phoneNumber'),
     });
   };
 
-return (
+  return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -82,10 +84,13 @@ return (
               margin="normal"
               required
               fullWidth
-              name="Phone Number"
+              name="phoneNumber"
               label="Phone Number"
-              type="tel"
-              id="password"
+              type="number"
+              id="phone-number"
+              inputProps={{
+                pattern: '[0-9]+',
+              }}
             />
             <Button
               type="submit"
