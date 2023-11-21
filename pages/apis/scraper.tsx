@@ -1,8 +1,19 @@
 // ScraperApiPage.tsx
-
+import TaskSearch from '@/content/Dashboards/Tasks/TaskSearch';
 import React, { useEffect, useState } from 'react';
-import { CircularProgress, Alert, Container, Grid } from '@mui/material';
+import { CircularProgress,
+  Alert,
+  Container,
+  Grid,
+  FormControl,
+  Box,
+  OutlinedInput,
+  InputAdornment,
+  Button,
+  styled,
+ } from '@mui/material';
 import ApiFieldsList from '@/content/Management/ApiFields/ApiFieldsList';
+import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import SidebarLayout from '@/layouts/SidebarLayout';
 import PageHeader from '@/content/Management/Transactions/PageHeader';
 import apiFieldsData from '@/content/Management/ApiFields/apiFieldsData.json'; // Adjust the path
@@ -27,6 +38,13 @@ const ScraperApiPage = () => {
   if (loading) return <CircularProgress />;
   if (error) return <Alert severity="error">{error.message}</Alert>;
 
+  const OutlinedInputWrapper = styled(OutlinedInput)(
+    ({ theme }) => `
+      background-color: ${theme.colors.alpha.white[100]};
+      padding-right: ${theme.spacing(0.7)}
+  `
+  );
+
   return (
     <>
     <Head>
@@ -39,6 +57,28 @@ const ScraperApiPage = () => {
         />
       </PageTitleWrapper>
     <Container maxWidth="lg">
+    <Grid item xs={12}>
+        <Box p={4}>
+        <FormControl variant="outlined" fullWidth>
+        <OutlinedInputWrapper
+          type="text"
+          placeholder="Search terms here..."
+          endAdornment={
+            <InputAdornment position="end">
+              <Button variant="contained" size="small">
+                Search
+              </Button>
+            </InputAdornment>
+          }
+          startAdornment={
+            <InputAdornment position="start">
+              <SearchTwoToneIcon />
+            </InputAdornment>
+          }
+        />
+      </FormControl>
+        </Box>
+      </Grid>
       <Grid
         container
         direction="row"
