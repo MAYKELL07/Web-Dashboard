@@ -29,7 +29,7 @@ const LogoSignWrapper = styled(Box)(
 
 const LogoSign = styled(Box)(
   ({ theme }) => `
-        background: ${theme.general.reactFrameworkColor};
+        background: url('/favicon.ico');
         width: 18px;
         height: 18px;
         border-radius: ${theme.general.borderRadiusSm};
@@ -99,7 +99,7 @@ function Logo() {
 
   return (
     <TooltipWrapper
-      title="Gokil API Dashboard"
+      title="MAYKELL API dashboard"
       arrow
     >
       <LogoWrapper href="/">
@@ -116,9 +116,7 @@ function Logo() {
           badgeContent="1.0"
         >
           <LogoSignWrapper>
-            <LogoSign>
-              <LogoSignInner />
-            </LogoSign>
+            <img src="/favicon.ico" alt="Logo" />
           </LogoSignWrapper>
         </Badge>
       </LogoWrapper>

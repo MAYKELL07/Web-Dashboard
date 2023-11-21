@@ -14,7 +14,8 @@ function ApplicationsTransactions() {
         <title>Transactions - Applications</title>
       </Head>
       <PageTitleWrapper>
-        <PageHeader />
+        <PageHeader title="Transactions" description="These are all the transactions"
+        flag={true}/>
       </PageTitleWrapper>
       <Container maxWidth="lg">
         <Grid
