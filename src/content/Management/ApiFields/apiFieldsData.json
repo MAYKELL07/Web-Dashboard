@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "featureList": "User Authentication",
+      "category": "Authentication",
+      "requestMethod": "POST",
+      "description": "Authenticate users",
+      "queryParameter": "world?",
+      "status": "N/A"
+    },
+    {
+      "id": 2,
+      "featureList": "Get User Profile",
+      "category": "Profile",
+      "requestMethod": "GET",
+      "description": "Retrieve user profile",
+      "queryParameter": "hello?",
+      "status": "active"
+    }
+  ]
+  
